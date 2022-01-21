@@ -1,0 +1,19 @@
+{
+  "name": "nomad_node_zoom",
+  "version": "1.0.0",
+  "description": "let's code with me! this is zoom coding",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevelopJKong/nomad-node-zoom.git"
+  },
+  "author": "DevelopJKong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DevelopJKong/nomad-node-zoom/issues"
+  },
+  "homepage": "https://github.com/DevelopJKong/nomad-node-zoom#readme"
+}
