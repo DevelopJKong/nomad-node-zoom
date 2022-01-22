@@ -2,9 +2,8 @@
   "name": "nomad_node_zoom",
   "version": "1.0.0",
   "description": "let's code with me! this is zoom coding",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon"
   },
   "repository": {
     "type": "git",
@@ -12,8 +11,15 @@
   },
   "author": "DevelopJKong",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/DevelopJKong/nomad-node-zoom/issues"
+  "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.10",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
+    "nodemon": "^2.0.15"
   },
-  "homepage": "https://github.com/DevelopJKong/nomad-node-zoom#readme"
+  "dependencies": {
+    "express": "^4.17.2",
+    "pug": "^3.0.2"
+  }
 }
