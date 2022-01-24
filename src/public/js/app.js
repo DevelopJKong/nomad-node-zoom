@@ -1,25 +1,15 @@
-const messageList = document.querySelector("ul");
-const messageForm = document.querySelector("form");
-const socket = new WebSocket(`ws://${window.location.host}`);
+const socket = io();
 
-socket.addEventListener("open", () => {
-  console.log("Connected from Server ☕");
-});
+const welcome = document.querySelector("#welcome");
+const form = welcome.querySelector("form");
 
-socket.addEventListener("message", (message) => {
-  console.log(`New meesage : ${message.data}`);
-});
-
-socket.addEventListener("close", () => {
-  console.log("Disconnected from Server ❌");
-});
-
-function handleSubmit(event) {
-    event.preventDefault();
-    const input = messageForm.querySelector("input");
-    socket.send(input.value);
-    input.value = "";
+function handleRoomSubmit(event) {
+  event.preventDefault();
+  const input = form.querySelector("input");
+  socket.emit("enter_room", { payload: input.value },()=>{
+    console.log("server is done!");
+  });
+  input.value = "";
 }
 
-
-messageForm.addEventListener("submit",handleSubmit);
+form.addEventListener("submit",handleRoomSubmit);
