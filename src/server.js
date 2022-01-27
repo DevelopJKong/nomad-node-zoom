@@ -12,5 +12,20 @@ app.get("/*", (_, res) => res.redirect("/"));
 const httpServer = http.createServer(app);
 const wsServer = SocketIO(httpServer);
 
+wsServer.on("connection", (socket) => {
+    socket.on("join_room", (roomName) => { // 왜 여기서 다시 donw을 삭제한거지?
+      socket.join(roomName);
+      socket.to(roomName).emit("welcome");
+    });
+    socket.on("offer",(offer,roomName)=>{
+        socket.to(roomName).emit("offer",offer);
+    });
+    socket.on("answer",(answer,roomName) => {
+        socket.to(roomName).emit("answer",answer);
+    });
+
+  });
+
+
 const handleListen = () => console.log(`Listening on http://localhost:3000`);
 httpServer.listen(3000, handleListen);
